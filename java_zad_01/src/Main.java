@@ -1,5 +1,233 @@
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        System.out.println("Hello world!");
+    zad_1();
+    zad_2();
+    zad_3();
+    zad_4();
+    zad_5();
+    zad_6();
+    zad_7();
+    zad_8();
     }
+    public static void zad_1(){
+    float aRectangleSide = 0;
+    float bRectangleSide = 0;
+        Scanner scan = new Scanner(System.in);
+        aRectangleSide = scan.nextFloat();
+        bRectangleSide = scan.nextFloat();
+        System.out.println(aRectangleSide*bRectangleSide);
+    }
+    public static void zad_2(){
+    double squareRootOfPi =  Math.sqrt(Math.PI);
+    System.out.println(new DecimalFormat("#.##").format(squareRootOfPi));
+    }
+
+    public static void zad_3(){
+    Scanner scanner = new Scanner(System.in);
+    String twoString;
+    twoString = scanner.nextLine();
+    String[] splitString = twoString.split(" ",2);;
+     System.out.println("%"+splitString[1]+" "+splitString[0]+"%");
+
+
+    }
+
+    public static void zad_4(){
+        double a,b,c;
+        Scanner scanner = new Scanner(System.in);
+        a = scanner.nextDouble();
+        b = scanner.nextDouble();
+        c = scanner.nextDouble();
+        if(a <= 0 || b <=0 || c <= 0 ) {
+            System.out.println("BŁĄD");
+        }
+        else {
+            if ((a + b > c) && (a + c > b) && (b + c > a)) {
+                System.out.println("TAK");
+            } else {
+                System.out.println("NIE");
+            }
+        }
+    }
+
+    public static void zad_5() {
+        Scanner input = new Scanner(System.in);
+
+        int month = input.nextInt();
+
+        int days;
+        String name;
+        switch (month) {
+            case 1:
+                days = 31;
+                name = "Styczeń";
+                break;
+            case 2:
+                days = 28;
+                name = "Luty";
+                break;
+            case 3:
+                days = 31;
+                name = "Marzec";
+                break;
+            case 4:
+                days = 30;
+                name = "Kwiecień";
+                break;
+            case 5:
+                days = 31;
+                name = "Maj";
+                break;
+            case 6:
+                days = 30;
+                name = "Czerwiec";
+                break;
+            case 7:
+                days = 31;
+                name = "Lipiec";
+                break;
+            case 8:
+                days = 31;
+                name = "Sierpień";
+                break;
+            case 9:
+                days = 30;
+                name = "Wrzesień";
+                break;
+            case 10:
+                days = 31;
+                name = "Październik";
+                break;
+            case 11:
+                days = 30;
+                name = "Listopad";
+                break;
+            case 12:
+                days = 31;
+                name = "Grudzień";
+                break;
+            default:
+                System.out.println("BŁĄD");
+                return;
+
+        }
+        System.out.printf( name+" "+days);
+    }
+    public static void zad_6(){
+        Scanner scanner = new Scanner(System.in);
+        float a,b,c,temp;
+        a = scanner.nextFloat();
+        b = scanner.nextFloat();
+        c = scanner.nextFloat();
+       if (a>b){temp = a;
+                a = b;
+                b = temp;
+       }
+
+        if (b>c){temp = b;
+            b = c;
+            c = temp;}
+
+        if (a>c){temp = a;
+            a = c;
+            c = temp;}
+    System.out.println(a + " " + b +" "+ c );
+        System.out.println(c + " " + b +" "+ a );
+    }
+
+    public static void zad_7(){
+        Scanner input = new Scanner(System.in);
+        int n = input.nextInt();
+        int m = input.nextInt();
+        if (n <= 0 || m <= 0) {
+            System.out.println("BŁĄD");
+            return;
+        }
+        int[] A = new int[n];
+        int[] B = new int[m];
+
+        for (int i = 0; i < n; i++) {
+            System.out.printf("A[%d] = ", i);
+            A[i] = input.nextInt();
+        }
+        for (int i = 0; i < m; i++) {
+            System.out.printf("B[%d] = ", i);
+            B[i] = input.nextInt();
+        }
+
+        int scalarProduct = 0;
+        int minSize = Math.min(n, m);
+        for (int i = 0; i < minSize; i++) {
+            scalarProduct += A[i] * B[i];
+        }
+
+        System.out.println("Iloczyn skalarny wynosi: " + scalarProduct);
+
+
+
+    }
+  public static void zad_8(){
+
+      Scanner input = new Scanner(System.in);
+
+      int n;
+      do {
+          System.out.print("Podaj liczbę n: ");
+          n = input.nextInt();
+      } while (n <= 0);
+
+      // pierwszy wzór
+      for (int i = 1; i <= n; i++) {
+          for (int j = 1; j <= i; j++) {
+              System.out.print("*");
+          }
+          System.out.println();
+      }
+
+      // drugi wzór
+      for (int i = 1; i <= n; i++) {
+          for (int j = n; j >= i; j--) {
+              System.out.print("*");
+          }
+          System.out.println();
+      }
+
+      // trzeci wzór
+      for (int i = 1; i <= n; i++) {
+          for (int j = 1; j <= i - 1; j++) {
+              System.out.print(" ");
+          }
+          for (int j = n; j >= i; j--) {
+              System.out.print("*");
+          }
+          System.out.println();
+      }
+
+
+      for (int i = 1; i <= n; i++) {
+          for (int j = n; j >= i+1 ; j--) {
+              System.out.print(" ");
+          }
+          for (int j = 1; j <= i; j++) {
+              System.out.print("*");
+          }
+          System.out.println();
+      }
+
+
+  }
 }
+
+
+
+
+
+
+
+
+
+
+
