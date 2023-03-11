@@ -3,14 +3,18 @@ import java.util.Scanner;
 import java.util.HashMap;
 public class Main {
     public static void main(String[] args) {
-    //zad_1();
-    //zad_2();
-    //zad_3();
-    //zad_4();
-    //zad_5();
-    //zad_6();
-    //zad_7();
-    //zad_8();
+        Scanner scanner = new Scanner(System.in);
+    zad_1();
+    zad_2();
+    zad_3();
+    zad_4();
+    zad_5();
+    zad_6();
+    zad_7();
+    zad_8();
+    zad_9();
+    zad_10();
+    zad_11();
     zad_12();
     }
     public static void zad_1(){
@@ -253,16 +257,39 @@ public class Main {
 
     }
         public static void zad_10(){
+            Scanner scanner = new Scanner(System.in);
+            int a = scanner.nextInt();
+            int b = scanner.nextInt();
+            if (a <= 0 || b <= 0) {
+                System.out.println("BŁĄD");
+                return;
+            }
+
+            int[][] matrix = new int[a][b];
 
 
+            for (int i = 0; i < a; i++) {
+                for (int j = 0; j < b; j++) {
+                    matrix[i][j] = scanner.nextInt();
+                }
+            }
 
+            for (int j = 0; j < b; j++) {
+                for (int i = 0; i < a; i++) {
+                    System.out.print(matrix[i][j] + " ");
+                }
+                System.out.println();
+            }
         }
+
+
+
 
         public static void zad_11(){
 
             Scanner scanner = new Scanner(System.in);
             String text = scanner.nextLine();
-            boolean[] alphabetFlags = new boolean[26]; // tablica flag dla liter alfabetu
+            boolean[] alphabetFlags = new boolean[26];
             for(int i = 0;i < 25;i++){
                 alphabetFlags[i]= false;
 
@@ -271,14 +298,14 @@ public class Main {
 
 
             for (char c : text.toCharArray()) {
-                if (Character.isLetter(c)) { // sprawdzenie, czy znak to litera
-                    int index = Character.toLowerCase(c) - 'a'; // indeks litery w tablicy
-                    alphabetFlags[index] = true; // ustawienie flagi dla litery
+                if (Character.isLetter(c)) {
+                    int index = Character.toLowerCase(c) - 'a';
+                    alphabetFlags[index] = true;
                 }
             }
 
             for (boolean flag : alphabetFlags) {
-                if (!flag) { // jeśli flaga dla litery jest fałszywa, to znaczy, że litera nie wystąpiła w tekście
+                if (!flag) {
                     System.out.println("NIE");
                     return;
                 }
@@ -291,7 +318,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         long seconds = scanner.nextLong();
-          
+
         String planet = scanner.next();
             HashMap<String, Double> planetOrbits = new HashMap<>();
             planetOrbits.put("Merkury", 0.2408467);
