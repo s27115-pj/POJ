@@ -289,9 +289,9 @@ public class Main {
 
         public static void zad_12(){
         Scanner scanner = new Scanner(System.in);
-        System.out.println("X");
+
         long seconds = scanner.nextLong();
-            System.out.println("X");
+          
         String planet = scanner.next();
             HashMap<String, Double> planetOrbits = new HashMap<>();
             planetOrbits.put("Merkury", 0.2408467);
@@ -313,7 +313,7 @@ public class Main {
             }
 
         }
-    
+
     public static int getMax(int[] tab, int n) {
         if (n == 1) {
             return tab[0];
