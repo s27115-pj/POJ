@@ -1,16 +1,17 @@
 import java.text.DecimalFormat;
 import java.util.Scanner;
-
+import java.util.HashMap;
 public class Main {
     public static void main(String[] args) {
-    zad_1();
-    zad_2();
-    zad_3();
-    zad_4();
-    zad_5();
-    zad_6();
-    zad_7();
-    zad_8();
+    //zad_1();
+    //zad_2();
+    //zad_3();
+    //zad_4();
+    //zad_5();
+    //zad_6();
+    //zad_7();
+    //zad_8();
+    zad_12();
     }
     public static void zad_1(){
     float aRectangleSide = 0;
@@ -164,7 +165,7 @@ public class Main {
             scalarProduct += A[i] * B[i];
         }
 
-        System.out.println("Iloczyn skalarny wynosi: " + scalarProduct);
+        System.out.println(scalarProduct);
 
 
 
@@ -175,11 +176,11 @@ public class Main {
 
       int n;
       do {
-          System.out.print("Podaj liczbę n: ");
+
           n = input.nextInt();
       } while (n <= 0);
 
-      // pierwszy wzór
+
       for (int i = 1; i <= n; i++) {
           for (int j = 1; j <= i; j++) {
               System.out.print("*");
@@ -187,7 +188,7 @@ public class Main {
           System.out.println();
       }
 
-      // drugi wzór
+
       for (int i = 1; i <= n; i++) {
           for (int j = n; j >= i; j--) {
               System.out.print("*");
@@ -195,7 +196,7 @@ public class Main {
           System.out.println();
       }
 
-      // trzeci wzór
+
       for (int i = 1; i <= n; i++) {
           for (int j = 1; j <= i - 1; j++) {
               System.out.print(" ");
@@ -219,7 +220,120 @@ public class Main {
 
 
   }
+    public static void zad_9(){
+        Scanner scanner = new Scanner(System.in);
+        char[] word = new char[100];
+        int length = 0;
+
+        while (scanner.hasNext()) {
+            String line = scanner.nextLine();
+            for (int i = 0; i < line.length(); i++) {
+                if (length >= 100) {
+                    System.out.println("BŁĄD");
+                    return;
+                }
+                char c = line.charAt(i);
+                if (c >= 'a' && c <= 'z') {
+                    word[length] = c;
+                    length++;
+                } else if (c == '\n') {
+                    break;
+                }
+            }
+        }
+
+        for (int i = 0; i < length / 2; i++) {
+            if (word[i] != word[length - i - 1]) {
+                System.out.println("NIE");
+                return;
+
+            }
+        }
+        System.out.println("TAK");
+
+    }
+        public static void zad_10(){
+
+
+
+        }
+
+        public static void zad_11(){
+
+            Scanner scanner = new Scanner(System.in);
+            String text = scanner.nextLine();
+            boolean[] alphabetFlags = new boolean[26]; // tablica flag dla liter alfabetu
+            for(int i = 0;i < 25;i++){
+                alphabetFlags[i]= false;
+
+            }
+
+
+
+            for (char c : text.toCharArray()) {
+                if (Character.isLetter(c)) { // sprawdzenie, czy znak to litera
+                    int index = Character.toLowerCase(c) - 'a'; // indeks litery w tablicy
+                    alphabetFlags[index] = true; // ustawienie flagi dla litery
+                }
+            }
+
+            for (boolean flag : alphabetFlags) {
+                if (!flag) { // jeśli flaga dla litery jest fałszywa, to znaczy, że litera nie wystąpiła w tekście
+                    System.out.println("NIE");
+                    return;
+                }
+            }
+
+            System.out.println("TAK");
+        }
+
+        public static void zad_12(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("X");
+        long seconds = scanner.nextLong();
+            System.out.println("X");
+        String planet = scanner.next();
+            HashMap<String, Double> planetOrbits = new HashMap<>();
+            planetOrbits.put("Merkury", 0.2408467);
+            planetOrbits.put("Wenus", 0.61519726);
+            planetOrbits.put("Ziemia", 1.0);
+            planetOrbits.put("Mars", 1.8808158);
+            planetOrbits.put("Jowisz", 11.862615);
+            planetOrbits.put("Saturn", 29.447498);
+            planetOrbits.put("Uran", 84.016846);
+            planetOrbits.put("Neptun", 164.79132);
+            double earthYearSeconds = 31557600;
+            double age = seconds / earthYearSeconds;
+            if (planetOrbits.containsKey(planet)) {
+
+                System.out.println(new DecimalFormat("#.##").format(age /= planetOrbits.get(planet)));
+            } else {
+                System.out.println("Błąd");
+
+            }
+
+        }
+    
+    public static int getMax(int[] tab, int n) {
+        if (n == 1) {
+            return tab[0];
+        } else {
+            int max = getMax(tab, n - 1);
+            return Math.max(max,tab[n - 1]);
+        }
+    }
+
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
