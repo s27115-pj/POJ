@@ -1,0 +1,1 @@
+java uruchamia bytecode javy natomiast javac kompiluje program do bytecode
