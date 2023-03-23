@@ -1,4 +1,4 @@
-public class zad1_1 {
+public class zad2_1 {
 
     public static class Student {
         private String firstName;
