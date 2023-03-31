@@ -16,6 +16,7 @@ public class Main {
     zad_10();
     zad_11();
     zad_12();
+
     }
     public static void zad_1(){
     float aRectangleSide = 0;
@@ -230,7 +231,7 @@ public class Main {
         int length = 0;
 
         while (scanner.hasNext()) {
-            String line = scanner.nextLine();
+            String line = scanner.next();
             for (int i = 0; i < line.length(); i++) {
                 if (length >= 100) {
                     System.out.println("BŁĄD");
@@ -341,14 +342,7 @@ public class Main {
 
         }
 
-    public static int getMax(int[] tab, int n) {
-        if (n == 1) {
-            return tab[0];
-        } else {
-            int max = getMax(tab, n - 1);
-            return Math.max(max,tab[n - 1]);
-        }
-    }
+
 
 }
 
