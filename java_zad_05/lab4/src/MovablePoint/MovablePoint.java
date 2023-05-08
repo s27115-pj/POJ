@@ -1,3 +1,5 @@
+package MovablePoint;
+
 public class MovablePoint implements Movable {
     private int x;
     private int y;
@@ -9,7 +11,7 @@ public class MovablePoint implements Movable {
 
     @Override
     public String toString() {
-        return "MovablePoint{x=" + x + ", y=" + y + "}";
+        return "MovablePoint.MovablePoint{x=" + x + ", y=" + y + "}";
     }
 
     @Override
