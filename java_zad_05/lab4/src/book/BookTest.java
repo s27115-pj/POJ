@@ -1,7 +1,7 @@
 package book;
 
 import java.util.ArrayList;
-import java.util.Collections;
+
 import java.util.Comparator;
 import java.util.List;
 import java.util.function.Function;
@@ -60,7 +60,7 @@ public class BookTest {
         // Sortowanie książek po tytule z użyciem wyrażenia lambda
         Function<Book, String> getTitle = Book::getTitle;
         Comparator<Book> byTitle = Comparator.comparing(getTitle);
-        Collections.sort(books, byTitle);
+        books.sort(byTitle);
 
         // Wypisanie posortowanej listy na ekranie
         for (Book book : books) {
@@ -68,11 +68,9 @@ public class BookTest {
             System.out.println("Author: " + book.getAuthor());
             System.out.println("Number of pages: " + book.getNumberOfPages());
 
-            if (book instanceof PaperBook) {
-                PaperBook paperBook = (PaperBook) book;
+            if (book instanceof PaperBook paperBook) {
                 System.out.println("Release year: " + paperBook.getReleaseYear());
-            } else if (book instanceof Ebook) {
-                Ebook ebook = (Ebook) book;
+            } else if (book instanceof Ebook ebook) {
                 System.out.println("Format: " + ebook.getFormat());
                 System.out.println("Size: " + ebook.getSize() + " KB");
             }
