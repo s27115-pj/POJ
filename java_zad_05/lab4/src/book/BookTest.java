@@ -4,76 +4,81 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.function.Function;
 
 public class BookTest {
+
     public static void main(String[] args) {
+
         List<Book> books = new ArrayList<>();
+
+        // Dodajemy kilka obiektów klasy Book
         Book book1 = new Book();
-        book1.setTitle("To Kill a Mockingbird");
-        book1.setAuthor("Harper Lee");
-        book1.setNumberOfPages(281);
+        book1.setTitle("1984");
+        book1.setAuthor("George Orwell");
+        book1.setNumberOfPages(328);
         books.add(book1);
 
         Book book2 = new Book();
-        book2.setTitle("The Catcher in the Rye");
-        book2.setAuthor("J.D. Salinger");
-        book2.setNumberOfPages(224);
+        book2.setTitle("Animal Farm");
+        book2.setAuthor("George Orwell");
+        book2.setNumberOfPages(112);
         books.add(book2);
 
-        Book book3 = new Book();
-        book3.setTitle("Lord of the Flies");
-        book3.setAuthor("William Golding");
-        book3.setNumberOfPages(224);
-        books.add(book3);
+        // Dodajemy kilka obiektów klasy PaperBook
+        PaperBook paperBook1 = new PaperBook();
+        paperBook1.setTitle("Brave New World");
+        paperBook1.setAuthor("Aldous Huxley");
+        paperBook1.setNumberOfPages(288);
+        paperBook1.setReleaseYear(1932);
+        books.add(paperBook1);
 
-        Book book4 = new Book();
-        book4.setTitle("Brave New World");
-        book4.setAuthor("Aldous Huxley");
-        book4.setNumberOfPages(288);
-        books.add(book4);
+        PaperBook paperBook2 = new PaperBook();
+        paperBook2.setTitle("Fahrenheit 451");
+        paperBook2.setAuthor("Ray Bradbury");
+        paperBook2.setNumberOfPages(249);
+        paperBook2.setReleaseYear(1953);
+        books.add(paperBook2);
 
-        Book book5 = new Book();
-        book5.setTitle("Fahrenheit 451");
-        book5.setAuthor("Ray Bradbury");
-        book5.setNumberOfPages(249);
-        books.add(book5);
+        // Dodajemy kilka obiektów klasy Ebook
+        Ebook ebook1 = new Ebook();
+        ebook1.setTitle("The Hitchhiker's Guide to the Galaxy");
+        ebook1.setAuthor("Douglas Adams");
+        ebook1.setNumberOfPages(193);
+        ebook1.setFormat("EPUB");
+        ebook1.setSize(438);
+        books.add(ebook1);
 
-        Book book6 = new Book();
-        book6.setTitle("The Great Gatsby");
-        book6.setAuthor("F. Scott Fitzgerald");
-        book6.setNumberOfPages(180);
-        books.add(book6);
+        Ebook ebook2 = new Ebook();
+        ebook2.setTitle("The Lord of the Rings");
+        ebook2.setAuthor("J.R.R. Tolkien");
+        ebook2.setNumberOfPages(1216);
+        ebook2.setFormat("MOBI");
+        ebook2.setSize(3279);
+        books.add(ebook2);
 
-        Book book7 = new Book();
-        book7.setTitle("1984");
-        book7.setAuthor("George Orwell");
-        book7.setNumberOfPages(328);
-        books.add(book7);
+        // Sortowanie książek po tytule z użyciem wyrażenia lambda
+        Function<Book, String> getTitle = Book::getTitle;
+        Comparator<Book> byTitle = Comparator.comparing(getTitle);
+        Collections.sort(books, byTitle);
 
-        Book book8 = new Book();
-        book8.setTitle("Pride and Prejudice");
-        book8.setAuthor("Jane Austen");
-        book8.setNumberOfPages(435);
-        books.add(book8);
-
-        Book book9 = new Book();
-        book9.setTitle("The Picture of Dorian Gray");
-        book9.setAuthor("Oscar Wilde");
-        book9.setNumberOfPages(254);
-        books.add(book9);
-
-        Book book10 = new Book();
-        book10.setTitle("The Hobbit");
-        book10.setAuthor("J.R.R. Tolkien");
-        book10.setNumberOfPages(366);
-        books.add(book10);
-
-        // Sortowanie listy książek po tytule
-        Collections.sort(books, Comparator.comparing(Book::getTitle));
-
-        // Wyświetlenie posortowanej listy książek
+        // Wypisanie posortowanej listy na ekranie
         for (Book book : books) {
-            System.out.println(book.getTitle() + " - " + book.getAuthor() + " (" + book.getNumberOfPages() + " pages)");
+            System.out.println("Title: " + book.getTitle());
+            System.out.println("Author: " + book.getAuthor());
+            System.out.println("Number of pages: " + book.getNumberOfPages());
+
+            if (book instanceof PaperBook) {
+                PaperBook paperBook = (PaperBook) book;
+                System.out.println("Release year: " + paperBook.getReleaseYear());
+            } else if (book instanceof Ebook) {
+                Ebook ebook = (Ebook) book;
+                System.out.println("Format: " + ebook.getFormat());
+                System.out.println("Size: " + ebook.getSize() + " KB");
+            }
+
+            System.out.println();
         }
+
     }
 }

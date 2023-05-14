@@ -4,30 +4,29 @@ public class Ebook extends Book {
     private int size;
     private String format;
 
-    public Ebook(String przygodyTomkaSawyera, String markTwain, int i, int i1, String pdf) {
-        super();
+    public Ebook(String title, String author, int numberOfPages, int size, String format) {
+        super(title, author, numberOfPages);
+        this.size = size;
+        this.format = format;
     }
 
-    @Override
-    public void setNumberOfPages(int numberOfPages) {
-        super.setNumberOfPages(numberOfPages);
+    public Ebook() {
+
     }
 
-    @Override
-    public void setAuthor(String author) {
-        super.setAuthor(author);
-    }
-
-    @Override
-    public void setTitle(String title) {
-        super.setTitle(title);
+    public void setSize(int size) {
+        this.size = size;
     }
 
     public void setFormat(String format) {
         this.format = format;
     }
 
-    public void setSize(int size) {
-        this.size = size;
+    public int getSize() {
+        return size;
+    }
+
+    public String getFormat() {
+        return format;
     }
 }
