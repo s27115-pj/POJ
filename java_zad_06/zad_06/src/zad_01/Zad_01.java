@@ -3,7 +3,7 @@ package zad_01;
 import java.util. LinkedList;
 public class Zad_01 implements listService {
 
-    LinkedList<String> teaType = new LinkedList<String>();
+    LinkedList<String> teaType = new LinkedList<>();
     LinkedList<String> removeTea = new LinkedList<>();
     public void fillList() {
         teaType.add("early gray");
