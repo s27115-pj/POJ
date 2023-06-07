@@ -1,0 +1,15 @@
+Napisz program w Javie, w którym zaimplementujesz obiekt typu TreeSet –
+posortowane drzewo binarne tree1:
+a. dodaj do niego pięć nazw kolorów i wypisz na ekran;
+b. poiteruj po wszystkich elementach drzewa i wypisz je na ekran;
+c. utwórz kolejne drzewo binarne tree2, zawierające trzy nazwy kolorów,
+wypisz je na ekran a następnie dodaj wszystkie jego elementy do
+drzewa z początku zadania tree1; wynik operacji wypisz na ekran;
+d. wypisz na ekran w odwrotnej kolejności elementy z drzewa tree1;
+e. wypisz pierwszy i ostatni element przechowywany w drzewie
+tree1;
+f. sklonuj tree1 do innego drzewa binarnego – tree3;
+g. wypisz na ekran liczbę elementów, przechowywanych w
+drzewie;
+h. porównaj ze sobą elementy przechowywane w dwóch
+drzewach binarnMaych tree1 i tree2.
